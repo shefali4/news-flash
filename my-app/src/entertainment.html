@@ -20,22 +20,32 @@
         </div> 
     </header>
     <div class="entertainmenttitle">
-        <h1 class="entertainment-main">  &#127916 Entertainment.</h1>
-        <ri><a onclick="update('movies')" class="pagebuttons">Movies</a></ri>
-        <ri><a onclick="update('show')" class="pagebuttons">TV Shows</a></ri>
-        <ri><a onclick="update('youtube')" class="pagebuttons">Youtube</a></ri>
-        <ri><a onclick="update('music')" class="pagebuttons">Music</a></ri>
-        <ri><a onclick="update('celeb')" class="pagebuttons">Celebs</a></ri>
+        <h1 class="animate-bottom">  &#127916 Entertainment.</h1>
+        <div class="scrollmenu">
+            <a onclick="update('Music')" >Music</a>
+            <a onclick="update('Youtube')" >Youtube</a>
+            <a onclick="update('Netflix')" >Netflix</a>
+            <a onclick="update('Concert')" >Concert</a>
+            <a onclick="update('Show')" >Show</a>
+            <a onclick="update('TikTok')" >TikTok</a>
+            <a onclick="update('Television')" >Television</a>
+            <a onclick="update('Celebrity')" >Celebrity</a>
+            <a onclick="update('Movies')" >Movies</a>
+            <a onclick="update('Restauraunt')" >Restauraunt</a>
+            <a onclick="update('Entertainment')" >Entertainment</a>
+            <a onclick="update('Hollywood')" >Hollywood</a>
+            <a onclick="update('Bollywood')" >Bollywood</a>
+            <a onclick="update('K-Pop')" >K-Pop</a>
+            <a onclick="update('Magazine')" >Magazine</a>            
+          </div>
+         
+        
 
-    </div>
-
-      
-  </body>
-</html>
 
 <script>
     var region;
     function update(str) {
+        document.getElementById("output").innerHTML = "LOADING";
         region = str;
         getnews();
     }
@@ -66,9 +76,13 @@
                      
                 }
         })
+        .catch(error => 
+             { console.log(error); });
     }
+    var myVar;
 
+   
 
 </script>
-
+</body>
 <div id = "output"></div>

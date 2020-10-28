@@ -23,31 +23,29 @@
         
 
         
-        <h1 class="tech-main"> &#128187 Technology.</h1>
-        <p><i class="arrow left"></i></p>
+        <h1 class="animate-bottom"> &#128187 Technology.</h1>
+        
+       
         <div class="scrollmenu">
-            
             <a onclick="update('Apple')" >Apple</a>
             <a onclick="update('Google')" >Google</a>
-            <a onclick="update('Facebook')" >Facebook</a>
             <a onclick="update('Tesla')" >Tesla</a>
             <a onclick="update('Uber')" >Uber</a>
-            <a onclick="update('STEM')" >STEM</a>
-            <a onclick="update('Microsoft')" >Microsoft</a>
             <a onclick="update('Amazon')" >Amazon</a>
             <a onclick="update('Snapchat')" >Snapchat</a>
-            <a onclick="update('Internet')" >Internet</a>
             <a onclick="update('Netflix')" >Netflix</a>
             <a onclick="update('IBM')" >IBM</a>
             <a onclick="update('Intel')" >Intel</a>
             <a onclick="update('Airbnb')" >Airbnb</a>
             <a onclick="update('Software')" >Software</a>
-            <a onclick="update('Twitter')" >Twitter</a>
             <a onclick="update('Oracle')" >Oracle</a>
             <a onclick="update('Adobe')" >Adobe</a>
+            <a onclick="update('Technology')" >Technology</a>
+            <a onclick="update('Online')" >Online</a>
+            <a onclick="update('Social Media')" >Social Media</a>
             
           </div>
-          <p><i class="arrow right"></i></p>
+
     </div>
     
 
@@ -64,7 +62,6 @@
         getnews();
     }
     function getnews() {
-        
         fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' + region +  '&from=2020-10-20&sortBy=popularity&apiKey=29759e74bf4c486c8a976922910d3207', {headers: new Headers({"X-Requested-With":"awer"})})
         .then(a=>a.json())
         .then(response => {

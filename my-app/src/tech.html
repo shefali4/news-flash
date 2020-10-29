@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title> &#128187  NEWS FLASH: Technology. </title>
+    <!-- Tab Text (Tech Page)-->
+    <title> &#128187;  NEWS FLASH: Technology. </title>
     <link rel = "stylesheet" href = "style.css">
     <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+     <!-- Navigation Bar (Tech Page)-->
     <header>
         <div class="header">
             <nav>
                 <ul class="navigation">
-                    <li> <a href="index.html"> &#9889 NEWS FLASH </a> </li>
+                    <li> <a href="index.html"> &#9889; NEWS FLASH </a> </li>
                     <li style="float:right"> <a class="active" href="discover.html"> Discover </a> </li>
                     <li style="float:right"> <a href="tech.html"> Technology </a> </li>
                     <li style="float:right"> <a href="sports.html">Sports </a></li>
@@ -19,13 +21,10 @@
             </nav>
         </div> 
     </header>
-    <div class="techtitle">
-        
 
-        
-        <h1 class="animate-bottom"> &#128187 Technology.</h1>
-        
-       
+    <!-- Tech Horizontal Buttons (Tech Page)-->
+    <div class="page-buttons" style= "background-image: url(tech.png)">
+        <h1 class="animate-bottom"> &#128187; Technology.</h1>
         <div class="scrollmenu">
             <a onclick="update('Apple')" >Apple</a>
             <a onclick="update('Google')" >Google</a>
@@ -36,61 +35,57 @@
             <a onclick="update('Netflix')" >Netflix</a>
             <a onclick="update('IBM')" >IBM</a>
             <a onclick="update('Intel')" >Intel</a>
-            <a onclick="update('Airbnb')" >Airbnb</a>
+            <a onclick="update('Cisco')" >Cisco</a>
             <a onclick="update('Software')" >Software</a>
             <a onclick="update('Oracle')" >Oracle</a>
             <a onclick="update('Adobe')" >Adobe</a>
             <a onclick="update('Technology')" >Technology</a>
             <a onclick="update('Online')" >Online</a>
             <a onclick="update('Social Media')" >Social Media</a>
-            
           </div>
-
     </div>
-    
 
-    
-   
-  </body>
-  
-</html>
 
 <script>
-    var region;
-    function update(str) {
-        region = str;
+
+    // Helper function to update keyword in the API call
+    var phrase;
+    function update(inputStr) {
+        phrase = inputStr;
         getnews();
     }
+
+    // Calls news API using passed in keyword 
     function getnews() {
-        fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' + region +  '&from=2020-10-20&sortBy=popularity&apiKey=29759e74bf4c486c8a976922910d3207', {headers: new Headers({"X-Requested-With":"awer"})})
+        fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' 
+        + phrase +  '&from=2020-10-20&sortBy=popularity&apiKey=78b9d599c4f94f8fa3afb1a5458928d6', 
+        {headers: new Headers({"X-Requested-With":"awer"})})
         .then(a=>a.json())
         .then(response => {
-            document.getElementById("output").innerHTML = "";
+           document.getElementById("output").innerHTML = "";
             for (var i = 0; i<response.articles.length; i++) {
-
-               
-                document.getElementById("output").innerHTML += "<div style='overflow:initial !important; padding-top: 100px; padding-left: 70px; padding-right:30px;'</div>" + 
-                "<div style='padding-top: 20px; padding-left: 100px; padding-right:30px; ' ><img style=' border: 3px solid #ddd;border-radius: 8px;background-color: white; box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; width: 330px; height: 50%;overflow: scroll;'  src = '" + 
-                
-                    response.articles[i].urlToImage+
-                    "'><h1><div style='text-align: center; padding-right: 100px; padding-left: 100px; ;'</div>"
-                    +response.articles[i].title
-                    +"</h1><h3><div style='text-align: center; '</div>"
-                    +response.articles[i].source.name
-                    +"<br></h3><div style='padding-left: 370px; padding-right: 100px;'</div>"
-                    +response.articles[i].description
-                    +"<a href='"
-                    +response.articles[i].url
-                    +"'target='_blank'> <br> READ MORE ~ "
-                    +response.articles[i].url
-                    +"</a></div>"; 
-                    
-                     
+                document.getElementById("output").innerHTML += "<div style='overflow:initial !important; padding-top: 100px;" 
+                + "padding-left: 70px; padding-right:30px; padding-top: 120px; padding-left: 50px;" 
+                + "padding-right:30px; ' ><img style=' border: 3px solid #ddd; border-radius: 8px;background-color: white;" 
+                + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; width: 330px;" 
+                + "height: 50%; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s; animation-name:" 
+                + "animatebottom; animation-duration: 3s;'  src = '" 
+                + response.articles[i].urlToImage + "'><h1><div style='-webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
+                + "animation-name: animatebottom; animation-duration: 3s; text-align: center; padding-right: 100px; padding-left: 50px; ;'</div>"
+                + response.articles[i].title + "</h1><h3><div style=' -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
+                + "animation-name: animatebottom; animation-duration: 3s;text-align: center; padding-left: 150px; '</div>"
+                + response.articles[i].source.name + "<br></h3><div style=' font-size:14px;text-align: center;padding-left: 150px; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;"
+                + "animation-name: animatebottom; animation-duration: 3s;padding-left: 370px; padding-right: 100px;'</div>"
+                + response.articles[i].description + "<a href='" + response.articles[i].url + "'target='_blank'> <br> READ MORE ~ "
+                + response.articles[i].url +"</a></div>";     
                 }
         })
-    }
-
-
+}
 </script>
-
 <div id = "output"></div>
+
+  <!-- Simple Footer (Welcome Page)-->
+  <footer>Copyright © Shefali Sharma, 2020 </footer>
+  
+</body>
+</html>

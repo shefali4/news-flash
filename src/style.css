@@ -1,0 +1,256 @@
+ body {
+    font-family: 'News Cycle', sans-serif;
+    background-color: #d8b402;
+    background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+    margin: 0; 
+    font-family: Verdana, sans-serif;
+ }
+
+ /* Welcome Page */
+ .welcome {
+  text-align: center;
+  min-height: 100vh;
+  padding-top: 250px;  
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+.welcome-image {
+  background-image: url("background.png");
+  background-color: #cccccc;
+  height: 700px;
+  top:78px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.welcome-text {
+  text-align: left;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+ /* About Me Section on Welcome Page */
+.bio-heading {
+  padding-top: 3%;
+  padding-left: 28%;
+}
+
+.bio-text {
+  padding-top: 1%;
+  padding-left: 28%;
+  padding-right: 80px;
+  padding-bottom: 90px;
+}
+
+.links {
+  padding: 12px 28px;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+  text-decoration: none;
+  margin-top: 280px;
+  margin-left: 80px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.26);
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 8px #999;
+  
+}
+.links:hover {background-color: rgba(197, 147, 20, 0.726)}
+
+.links:active {
+  background-color:black;
+  box-shadow: 0 5px rgb(46, 46, 46);
+  transform: translateY(4px);
+}
+
+/* Bio Image */
+img {
+  padding-top: 2%;
+  float: left;
+  margin-left: 30px;
+  height:35%;
+  border-radius: 50%;
+}
+
+/* Navigation Bar */
+ ul {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    left:0;
+    width: 100%;
+    position: fixed;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,90);
+    background-color: black;
+    font-weight: 700;
+  }
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 27px 35px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    transition: 0.2s;
+    background-color: rgba(205, 173, 18, 0.94);
+  }
+  
+  .active {
+    background-color: rgba(205, 173, 18, 0.94);
+  }
+
+/* Arrow on Welcome Page */
+.arrow {
+  border: solid white;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 9px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/* Black Bar between Welcome & About Me */
+.block-section {
+  padding: 9px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.856);
+}
+
+/* Horizontal Scrolling Buttons on Tech, Entertainment, Sports Pages */
+.page-buttons {
+  text-align: center;
+  padding-top: 130px;
+  border-top: 0px solid #C2C2C2;
+  height: 430px;
+  top:78px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 2px 4px 3px rgba(0,0,0,90);
+}
+* {
+  box-sizing: border-box;
+}
+ 
+/* Horizontal Scroll List */
+div.scrollmenu {
+  background-color: transparent;
+  border: black;
+  overflow: auto;
+  scrollbar-width: 300;
+  animation: slide infinite linear 14s ;
+  scrollbar-width: none;
+  white-space: nowrap;
+  font-size: 16px;
+  
+}
+
+div.scrollmenu a {
+  scroll-padding:90 ;
+  display: inline-block;
+  color: black;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  animation-play-state: paused;
+  padding: 10px 55px;
+  scrollbar-width: none; 
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-left: 80px;
+  text-align: center;
+  font-family: 'News Cycle', sans-serif;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color:lightyellow;
+}
+ 
+/* Automatic Slow Scrolling Animation */
+@keyframes slide {
+  0% {
+    margin-left: 90px;
+  }
+  50% {
+    margin-left: -100px;
+  }
+  100% {
+    margin-left: -500px;
+  }
+}
+
+/* Discover Button on Welcome Page */
+.button {
+  padding: 13px 43px;
+  font-size: 22px;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 8px #999;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+
+.button:hover {background-color: goldenrod}
+
+.button:active {
+  background-color:black;
+  box-shadow: 0 5px rgb(90, 90, 90);
+  transform: translateY(4px);
+}
+
+
+/* Bottom Fade Animation on Welcome Page */
+.animate-bottom {
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+/* Footer */
+footer {
+  padding: 16px 30px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.657);
+  color: white;
+  bottom: 0;
+  width:100%;
+  position: fixed;
+  left: 0;
+}
+.article-images {
+  width: 330px;
+}

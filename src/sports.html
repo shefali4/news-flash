@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <!-- Sports Text (Sports Page)-->
+    <title> &#x26bd; NEWS FLASH: Sports. </title>
+    <link rel = "stylesheet" href = "style.css">
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+
+        <!-- Navigation Bar (Sports Page)-->
+        <div class="header">
+            <nav>
+                <ul class="navigation">
+                    <li> <a href="index.html"> &#x26bd; NEWS FLASH </a> </li>
+                    <li style="float:right"> <a class="active" href="discover.html"> Discover </a> </li>
+                    <li style="float:right"> <a href="tech.html"> Technology </a> </li>
+                    <li style="float:right"> <a href="sports.html" onclick='getnews()' >Sports </a></li>
+                    <li style="float:right"><a href="entertainment.html">Entertainment </a> </li>
+                </ul>
+            </nav>
+        </div> 
+    </header>
+
+     <!-- Sports Horizontal Buttons (Sports Page)-->
+    <div class="page-buttons" style="background-image: url(sports.png)">
+        <h1 class="animate-bottom">  &#x26bd; Sports.</h1>
+        <div class="scrollmenu">
+            <a onclick="update('Tennis')" >Tennis</a>
+            <a onclick="update('Football')" >Football</a>
+            <a onclick="update('Baseball')" >Baseball</a>
+            <a onclick="update('Soccer')" >Soccer</a>
+            <a onclick="update('Swimming')" >Swimming</a>
+            <a onclick="update('Golf')" >Golf</a>
+            <a onclick="update('Running')" >Running</a>
+            <a onclick="update('Fitness')" >Fitness</a>
+            <a onclick="update('Yoga')" >Yoga</a>
+            <a onclick="update('Sports')" >Sports</a>
+            <a onclick="update('Lacrosse')" >Lacrosse</a>
+            <a onclick="update('Track')" >Track</a>
+            <a onclick="update('Dance')" >Dance</a>
+            <a onclick="update('Cheer')" >Cheer</a>
+            <a onclick="update('Athletics')" >Athletics</a>
+            <a onclick="update('Gymnastics')" >Gymnastics</a>
+          </div>
+    </div>
+
+<script>
+
+    // Helper function to update keyword in the API call
+    var phrase;
+    function update(inputStr) {
+        phrase = inputStr;
+        getnews();
+    }
+    
+    // Calls news API using passed in keyword 
+    function getnews() {
+        fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' 
+        + phrase +  '&from=2020-10-20&sortBy=popularity&apiKey=78b9d599c4f94f8fa3afb1a5458928d6', 
+        {headers: new Headers({"X-Requested-With":"awer"})})
+        .then(a=>a.json())
+        .then(response => {
+            document.getElementById("output").innerHTML = "";
+            for (var i = 0; i<response.articles.length; i++) {
+                document.getElementById("output").innerHTML += "<div style='overflow:initial !important; padding-top: 100px;" 
+                + "padding-left: 70px; padding-right:30px; padding-top: 120px; padding-left: 50px;" 
+                + "padding-right:30px; ' ><img style=' border: 3px solid #ddd; border-radius: 8px;background-color: white;" 
+                + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; width: 330px;" 
+                + "height: 50%; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s; animation-name:" 
+                + "animatebottom; animation-duration: 3s;'  src = '" 
+                + response.articles[i].urlToImage + "'><h1><div style='-webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
+                + "animation-name: animatebottom; animation-duration: 3s; text-align: center; padding-right: 100px; padding-left: 50px; ;'</div>"
+                + response.articles[i].title + "</h1><h3><div style=' -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
+                + "animation-name: animatebottom; animation-duration: 3s;text-align: center; padding-left: 150px; '</div>"
+                + response.articles[i].source.name + "<br></h3><div style=' font-size:14px;text-align: center;padding-left: 150px; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;"
+                + "animation-name: animatebottom; animation-duration: 3s;padding-left: 370px; padding-right: 100px;'</div>"
+                + response.articles[i].description + "<a href='" + response.articles[i].url + "'target='_blank'> <br> READ MORE ~ "
+                + response.articles[i].url +"</a></div>";     
+                }
+        }).catch(function() {
+        console.log("error");
+    });
+}
+</script>
+<div id = "output"></div>
+   
+  <!-- Simple Footer (Welcome Page)-->
+  <footer>Copyright © Shefali Sharma, 2020 </footer>
+  
+</body>
+</html>

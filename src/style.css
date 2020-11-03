@@ -1,9 +1,10 @@
- body {
-    font-family: 'News Cycle', sans-serif;
+body {
+  font-family: 'Corben', Georgia, Times, serif;
     background-color: #d8b402;
     background-image: url("https://www.transparenttextures.com/patterns/arches.png");
     margin: 0; 
-    font-family: Verdana, sans-serif;
+    margin-bottom: 100px;
+
  }
 
  /* Welcome Page */
@@ -38,39 +39,13 @@
  /* About Me Section on Welcome Page */
 .bio-heading {
   padding-top: 3%;
-  padding-left: 28%;
+  padding-left: 30%;
 }
 
 .bio-text {
   padding-top: 1%;
-  padding-left: 28%;
+  padding-left: 30%;
   padding-right: 80px;
-  padding-bottom: 90px;
-}
-
-.links {
-  padding: 12px 28px;
-  font-size: 14px;
-  text-align: center;
-  position: relative;
-  animation-name: animatebottom;
-  animation-duration: 1s;
-  text-decoration: none;
-  margin-top: 280px;
-  margin-left: 80px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.26);
-  border: none;
-  border-radius: 40px;
-  box-shadow: 0 8px #999;
-  
-}
-.links:hover {background-color: rgba(197, 147, 20, 0.726)}
-
-.links:active {
-  background-color:black;
-  box-shadow: 0 5px rgb(46, 46, 46);
-  transform: translateY(4px);
 }
 
 /* Bio Image */
@@ -113,6 +88,8 @@ img {
   li a:hover:not(.active) {
     transition: 0.2s;
     background-color: rgba(205, 173, 18, 0.94);
+    color: rgba(97, 82, 7, 0.94);
+    
   }
   
   .active {
@@ -157,9 +134,12 @@ img {
  
 /* Horizontal Scroll List */
 div.scrollmenu {
+
   background-color: transparent;
   border: black;
   overflow: auto;
+  display: block;
+  
   scrollbar-width: 300;
   animation: slide infinite linear 14s ;
   scrollbar-width: none;
@@ -171,6 +151,7 @@ div.scrollmenu {
 div.scrollmenu a {
   scroll-padding:90 ;
   display: inline-block;
+  
   color: black;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
@@ -179,6 +160,7 @@ div.scrollmenu a {
   scrollbar-width: none; 
   border-radius: 20px;
   margin-top: 50px;
+  background-color:rgba(255, 255, 224, 0.171);
   margin-left: 80px;
   text-align: center;
   font-family: 'News Cycle', sans-serif;
@@ -187,6 +169,9 @@ div.scrollmenu a {
 
 div.scrollmenu a:hover {
   background-color:lightyellow;
+  font-weight: bold;
+  font-size: 18px;
+  
 }
  
 /* Automatic Slow Scrolling Animation */
@@ -212,13 +197,19 @@ div.scrollmenu a:hover {
   color: #fff;
   background-color: black;
   border: none;
+  font-weight: bold;
   border-radius: 40px;
   box-shadow: 0 8px #999;
   animation-name: animatebottom;
   animation-duration: 1s;
 }
 
-.button:hover {background-color: goldenrod}
+.button:hover {
+  background-color: goldenrod;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
 
 .button:active {
   background-color:black;
@@ -230,10 +221,11 @@ div.scrollmenu a:hover {
 /* Bottom Fade Animation on Welcome Page */
 .animate-bottom {
   position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
   animation-name: animatebottom;
   animation-duration: 1s
 }
-
 
 @keyframes animatebottom { 
   from{ bottom:-100px; opacity:0 } 
@@ -242,15 +234,55 @@ div.scrollmenu a:hover {
 
 /* Footer */
 footer {
-  padding: 16px 30px;
+  padding: 13px 30px;
   font-size: 12px;
-  background: rgba(0, 0, 0, 0.657);
-  color: white;
-  bottom: 0;
-  width:100%;
-  position: fixed;
-  left: 0;
+  background: rgba(0, 0, 0, 0.479);
+  color: black;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width: 100%;
+  
 }
-.article-images {
-  width: 330px;
+
+#lab_social_icon_footer { 
+  background-color: transparent;
+
+}
+
+#lab_social_icon_footer a {
+  color: rgb(0, 0, 0);
+  margin-left: 70px;
+}
+
+#lab_social_icon_footer .social:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+#lab_social_icon_footer .social {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+/* Multicoloured Hover Variations */
+
+#lab_social_icon_footer #social-li:hover {
+  color: #3B5998;
+}
+
+#lab_social_icon_footer #social-gh:hover {
+  color: rgb(64, 255, 89);
+}
+
+#lab_social_icon_footer #social-wx:hover {
+  color: #d34836;
+}
+
+#lab_social_icon_footer #social-em:hover {
+  color: #f39c12;
 }

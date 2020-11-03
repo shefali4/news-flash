@@ -5,6 +5,7 @@
     <title> &#129300; NEWS FLASH: Discover. </title>
     <link rel = "stylesheet" href = "style.css">
     <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -22,7 +23,8 @@
         </div> 
     </header>
     <div class="page-buttons" style=" background-image: url(discover.png)">
-        <h1 class="animate-bottom"> &#129300; Discover.</h1>
+        <h1 class="animate-bottom"> &#x1f50d; Discover.</h1>
+        <h3 class="animate-bottom">Check out the top headlines in tech, sports, and entertainment.</h3> 
     </div>
   
 
@@ -37,20 +39,19 @@
         .then(a=>a.json())
         .then(response => {
             document.getElementById("output").innerHTML = "";
-            for (var i = 0; i<response.articles.length; i++) {
-                document.getElementById("output").innerHTML += "<div style='overflow:initial !important; padding-top: 100px;" 
-                + "padding-left: 70px; padding-right:30px; padding-top: 190px; padding-left: 50px;" 
-                + "padding-right:30px; ' ><img style=' border: 3px solid #ddd; border-radius: 8px;background-color: white;" 
-                + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; width: 330px;" 
-                + "height: 50%; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s; animation-name:" 
-                + "animatebottom; animation-duration: 3s;'  src = '" 
-                + response.articles[i].urlToImage + "'><h1><div style='-webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
-                + "animation-name: animatebottom; animation-duration: 3s; text-align: center; padding-right: 100px; padding-left: 50px; ;'</div>"
-                + response.articles[i].title + "</h1><h3><div style=' -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;" 
-                + "animation-name: animatebottom; animation-duration: 3s;text-align: center; padding-left: 150px; '</div>"
-                + response.articles[i].source.name + "<br></h3><div style=' font-size:14px;text-align: center;padding-left: 150px; -webkit-animation-name: animatebottom; -webkit-animation-duration: 3s;"
-                + "animation-name: animatebottom; animation-duration: 3s;padding-left: 370px; padding-right: 100px;'</div>"
-                + response.articles[i].description + "<a href='" + response.articles[i].url + "'target='_blank'> <br> READ MORE ~ "
+        for (var i = 0; i<response.articles.length; i++) {
+            document.getElementById("output").innerHTML += "<div style='overflow:initial !important;" 
+                + "padding-left: 70px; padding-right:30px; padding-top: 150px;'>"
+                + "<img style='border: 5px solid #ddd; padding: 0 !important; border-radius: 13px; background-color: white;" 
+                + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; height: 200px; width: 250px;" 
+                + "height: 50%; animation-name: animatebottom; animation-duration: 3s;'  src = '" 
+                + response.articles[i].urlToImage + "'><h2><div style=' animation-name: animatebottom; animation-duration: 3s;"
+                + "text-align: center; padding-right: 100px; padding-left: 50px;'</div>"
+                + response.articles[i].title + "</h2><h3><div style='animation-name: animatebottom; animation-duration: 3s; text-align: center;'</div>"
+                + response.articles[i].source.name + "<br></h3><div style='font-size:14px; text-align: center;"
+                + "animation-name: animatebottom; animation-duration: 3s; padding-left: 370px; padding-right: 100px;'</div>"
+                + response.articles[i].description + "<a href='" 
+                + response.articles[i].url + "'target='_blank'> <br> READ MORE ~ '"
                 + response.articles[i].url +"</a></div>";     
                 }
         }).catch(function() {
@@ -63,7 +64,8 @@
 <div id = "output"></div>
 
   <!-- Simple Footer (Welcome Page)-->
-  <footer>Copyright © Shefali Sharma, 2020 </footer>
-  
+  <footer style="text-align: left;">
+    Copyright &#169; Shefali Sharma, 2020
+  </footer>
 </body>
 </html>

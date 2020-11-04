@@ -46,51 +46,85 @@
             <a onclick="update('Athletics')" >Athletics</a>
             <a onclick="update('Gymnastics')" >Gymnastics</a>
           </div>
+          <body onload="getnews()"> 
     </div>
 
-<script>
-
-    // Helper function to update keyword in the API call
-    var phrase;
-    function update(inputStr) {
-        phrase = inputStr;
-        getnews();
-    }
+    <script>
+        // Helper function to update keyword in the API call
+        var phrase = "Click any button to learn more!";
+        function update(inputStr) {
+            phrase = inputStr;
+            getnews();
+        }
     
-    // Calls news API using passed in keyword 
-    function getnews() {
-        fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' 
-        + phrase +  '&from=2020-10-20&sortBy=popularity&apiKey=78b9d599c4f94f8fa3afb1a5458928d6', 
-        {headers: new Headers({"X-Requested-With":"awer"})})
-        .then(a=>a.json())
-        .then(response => {
-            document.getElementById("output").innerHTML = "";
-        for (var i = 0; i<response.articles.length; i++) {
-            document.getElementById("output").innerHTML += "<div style='overflow:initial !important;" 
-                + "padding-left: 70px; padding-right:30px; padding-top: 150px;'>"
-                + "<img style='border: 5px solid #ddd; padding: 0 !important; border-radius: 13px; background-color: white;" 
-                + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left; height: 200px; width: 250px;" 
-                + "height: 50%; animation-name: animatebottom; animation-duration: 3s;'  src = '" 
-                + response.articles[i].urlToImage + "'><h2><div style=' animation-name: animatebottom; animation-duration: 3s;"
-                + "text-align: center; padding-right: 100px; padding-left: 50px;'</div>"
-                + response.articles[i].title + "</h2><h3><div style='animation-name: animatebottom; animation-duration: 3s; text-align: center;'</div>"
-                + response.articles[i].source.name + "<br></h3><div style='font-size:14px; text-align: center;"
-                + "animation-name: animatebottom; animation-duration: 3s; padding-left: 370px; padding-right: 100px;'</div>"
-                + response.articles[i].description + "<a href='" 
-                + response.articles[i].url + "'target='_blank'> <br> READ MORE ~ '"
-                + response.articles[i].url +"</a></div>";     
+        // Calls news API using passed in keyword 
+        function getnews() {
+            fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=' 
+            + phrase +  '&from=2020-10-20&sortBy=popularity&apiKey=78b9d599c4f94f8fa3afb1a5458928d6', 
+            {headers: new Headers({"X-Requested-With":"awer"})})
+            .then(a=>a.json())
+            .then(response => {
+                document.getElementById("output").innerHTML = "";
+                document.getElementById("demo").innerHTML = String.fromCodePoint(128064) + "  " +  phrase;
+                
+                for (var i = 0; i<response.articles.length; i++) {
+                    if (response.articles[i].urlToImage == null) {
+                        response.articles[i].urlToImage = "invalid.jpeg";
+                    }
+                    if (response.articles[i].description == null) {
+                        response.articles[i].description = "No Description Available";
+                    }
+                    if (response.articles[i].title == null) {
+                        response.articles[i].title = "No Title Available";
+                    }
+                    if (response.articles[i].source == null) {
+                        response.articles[i].source = "No Source Available";
+                    }
+                    if (response.articles[i].url == null) {
+                        response.articles[i].url = "No URL Available";
+                    }
+                    document.getElementById("output").innerHTML += "<div style='overflow:initial !important; padding-left: 70px;"
+                    + "padding-right:30px; padding-top: 100px;'><a href='" + response.articles[i].url + "'target='_blank'> <br> "
+                    + "<img style='background-color: #302244;border: 3px solid transparent;"
+                    + "border-image-slice: 4; padding: 0 !important; border-radius: 0px;" 
+                    + "box-shadow: 0 50px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float:left;"
+                    + "height: 180px; width: 290px; animation-name: animatebottom; animation-duration: 3s;'  src = '" 
+                    + response.articles[i].urlToImage + "'></a><h2><div style=' padding-left:400px; animation-name: animatebottom; animation-duration: 3s;"
+                    + "text-align: center; padding-right: 200px;'</div>" + response.articles[i].title
+                    + "</h2><h3><div style='animation-name: animatebottom; animation-duration: 3s; padding-left:700px;'</div>"
+                    + response.articles[i].source.name + "<br></h4><div style='font-size:14px; text-align:center;padding-left:600px;"
+                    + "animation-name: animatebottom; animation-duration: 3s; padding-bottom:40px;padding-left:400px;padding-right: 200px;'</div>"
+                    + response.articles[i].description + "<a href='" + response.articles[i].url
+                    + "'target='_blank'> <br> READ MORE ~ '" + response.articles[i].url +"</a></div>";      
                 }
-        }).catch(function() {
-        console.log("error");
-    });
-}
-</script>
-<div id = "output"></div>
-   
-  <!-- Simple Footer -->
-  <footer style="text-align: left;">
-    Copyright &#169; Shefali Sharma, 2020
-  </footer>
-  
-</body>
-</html>
+            }).catch((error) => {
+                throw error;
+        });
+    }
+    </script>
+    <h3 class="demo" id="demo"></h3>
+    <div id = "output"></div>
+    
+      <!-- Footer -->
+      <footer >
+        <div id="footer">
+            <h3 class="copyright">Copyright &#169; Shefali Sharma, 2020</h3>
+            <h3 class="social">
+                <section id="lab_social_icon_footer">
+                    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="container">
+                      <div class="text-center center-block" >
+                        <a href="https://www.linkedin.com/in/shefalisharma101/" target=”_blank”><i id="social-li" class="fa fa-linkedin-square fa-3x socials"></i></a>
+                        <a href="https://github.com/shefali4" target=”_blank”><i id="social-gh" class="fa fa-github-square fa-3x socials"></i></a>
+                        <a href="https://sharma-portfolio.wixsite.com/info" target=”_blank”><i id="social-wx" class="fa fa-share-square fa-3x socials"></i></a>
+                        <a href="mailto:shefali4@illinois.edu" target=”_blank”><i id="social-em" class="fa fa-envelope-square fa-3x socials"></i></a>
+                      </div>
+                    </div>
+                </section>
+            </h3>
+            <div style="clear: both"></div>
+        </div>
+      </footer>
+    
+    </body>
+    </html>

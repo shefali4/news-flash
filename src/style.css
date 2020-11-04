@@ -4,7 +4,6 @@ body {
     background-image: url("https://www.transparenttextures.com/patterns/arches.png");
     margin: 0; 
     margin-bottom: 100px;
-
  }
 
  /* Welcome Page */
@@ -89,7 +88,6 @@ img {
     transition: 0.2s;
     background-color: rgba(205, 173, 18, 0.94);
     color: rgba(97, 82, 7, 0.94);
-    
   }
   
   .active {
@@ -134,24 +132,20 @@ img {
  
 /* Horizontal Scroll List */
 div.scrollmenu {
-
   background-color: transparent;
   border: black;
   overflow: auto;
   display: block;
-  
   scrollbar-width: 300;
   animation: slide infinite linear 14s ;
   scrollbar-width: none;
   white-space: nowrap;
   font-size: 16px;
-  
 }
 
 div.scrollmenu a {
   scroll-padding:90 ;
   display: inline-block;
-  
   color: black;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
@@ -170,8 +164,6 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color:lightyellow;
   font-weight: bold;
-  font-size: 18px;
-  
 }
  
 /* Automatic Slow Scrolling Animation */
@@ -202,21 +194,20 @@ div.scrollmenu a:hover {
   box-shadow: 0 8px #999;
   animation-name: animatebottom;
   animation-duration: 1s;
+  transition:background-position 1s;
 }
 
 .button:hover {
   background-color: goldenrod;
   color: black;
-  font-size: 25px;
   font-weight: bold;
+  background-position:35% 20px, top right;
 }
 
 .button:active {
   background-color:black;
   box-shadow: 0 5px rgb(90, 90, 90);
-  transform: translateY(4px);
 }
-
 
 /* Bottom Fade Animation on Welcome Page */
 .animate-bottom {
@@ -234,7 +225,8 @@ div.scrollmenu a:hover {
 
 /* Footer */
 footer {
-  padding: 13px 30px;
+  padding: 0px 30px;
+  padding-bottom: 10px;
   font-size: 12px;
   background: rgba(0, 0, 0, 0.479);
   color: black;
@@ -242,12 +234,18 @@ footer {
   bottom:0;
   left:0;
   width: 100%;
-  
+}
+
+.copyright {
+  float: left;
+}
+
+.socials { 
+  float: right;
 }
 
 #lab_social_icon_footer { 
   background-color: transparent;
-
 }
 
 #lab_social_icon_footer a {
@@ -256,19 +254,35 @@ footer {
 }
 
 #lab_social_icon_footer .social:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.1);
+}
+
+#lab_social_icon_footer .social {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+#lab_social_icon_footer .socials {
+  -webkit-transform: scale(.7);
+  -moz-transform: scale(.7);
+  -o-transform: scale(.7);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+#lab_social_icon_footer .socials:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
 }
 
-#lab_social_icon_footer .social {
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-}
 /* Multicoloured Hover Variations */
 
 #lab_social_icon_footer #social-li:hover {
@@ -276,7 +290,7 @@ footer {
 }
 
 #lab_social_icon_footer #social-gh:hover {
-  color: rgb(64, 255, 89);
+  color: rgb(51, 198, 71);
 }
 
 #lab_social_icon_footer #social-wx:hover {
@@ -285,4 +299,13 @@ footer {
 
 #lab_social_icon_footer #social-em:hover {
   color: #f39c12;
+}
+
+.demo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  animation-name: animatebottom; 
+  animation-duration: 3s;
+  padding-top: 20px;
 }
